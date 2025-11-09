@@ -111,6 +111,11 @@ void HAL_CAN_RxFifo1MsgPendingCallback(CAN_HandleTypeDef *hcan) {
     {
       if (rx_header2.StdId == 0x200) { // 帧头校验
         // 校验通过进行具体数据处理
+      }if (rx_header2.StdId >= 0x201 && rx_header2.StdId <= 0x204){ //检测GM6020电机的帧头
+        uint8_t motor_id = rx_header2.StdId - 0x200;  //计算电机id
+        if(motor_id >= 1 && motor_id <= 4){ 
+          M3508_motors[motor_id - 1].decode(can2_rx_data); //解密数据，并存放对应id的motors中
+        }
       }
     }
   }

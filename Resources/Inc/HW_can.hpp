@@ -6,6 +6,10 @@
 #include "system_user.hpp"
 
 #include "can.h"
+
+#include "M3508.hpp"
+extern M3508 M3508_motors[4];
+
 /* ------------------------------ Macro Definition
  * ------------------------------ */
 

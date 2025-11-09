@@ -70,7 +70,8 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size) {
   if (huart == &huart3) {
     if (Size == remote_control::kRcRxDataLen) {
       // TODO:在这里刷新看门狗
-
+      HAL_IWDG_Refresh(&hiwdg);
+      
       rc_ptr->decode(rx_buf);
     }
 

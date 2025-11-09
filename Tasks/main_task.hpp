@@ -33,6 +33,8 @@ void MainInit(void);
 
 void MainTask(void);
 
+void RobotInit(void);
+
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
