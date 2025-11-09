@@ -14,7 +14,7 @@ M3508::M3508(uint16_t id, float control_period)
     angle_(0),
     pid_output(0),
     control_period_(control_period),
-    enabled_(true),
+    enabled_(false),
     speed_pid_(Pid(PidParams{
       .kp = 15.0f,
       .ki = 0.5f,
